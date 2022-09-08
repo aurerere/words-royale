@@ -21,5 +21,25 @@ export default {
 </script>
 
 <style scoped>
+.player {
+  width: 100% ;
+  display: flex;
+  justify-content: space-between;
+  background: lightgreen;
+  padding: 12px;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
 
+.player__name {
+  color: darkgreen;
+  font-size: 20px;
+}
+
+.player__remove {
+  border-radius: 50%;
+  background: lightcoral;
+  border: none;
+  color: darkred;
+}
 </style>

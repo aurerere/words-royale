@@ -2,17 +2,18 @@ import { Player } from "@/game/players";
 import store from "@/store";
 
 let playersInGame = [];
+let playersTurn = [];
+
 
 export function start()
 {
+    playersInGame = [];
 
     for (let i = 0; i < store.state.players.length; i++) {
         playersInGame.push(new Player(store.state.lives, store.state.players[i]));
     }
 
-    console.log(playersInGame);
-
-    console.log(playersInGame[0] === playersInGame[7]);
+    console.log(playersInGame)
 }
 
 
