@@ -1,23 +1,23 @@
 <template>
   <h1>WORDS <i>ROYALE</i></h1>
-  <h2>Players ({{playersRegistered}})</h2>
+  <h2>Players <i>({{playersRegistered}})</i></h2>
   <div class="players">
     <Player v-for="registeredPlayer in players" :player="registeredPlayer"/>
   </div>
-  <form class="add-a-player" @input="checkUsername" @submit.prevent="addToPlayerList">
+  <form class="add-a-player" @submit.prevent="addToPlayerList">
     <input placeholder="ENTER A NAME" v-model="player">
-    <button class="add-a-player-button" type="submit">+</button>
+    <button class="add-a-player-button" type="submit">✓</button>
   </form>
   <div class="lives-wrapper">
     <button class="add-a-player-button" @click="minusLife">-</button>
-    <div class="lives">{{lives}}❤</div>
+    <div class="lives">{{lives}}❤️</div>
     <button class="add-a-player-button" @click="plusLife">+</button>
   </div>
   <button class="start-btn" @click="startGame">Start!</button>
 </template>
 
 <script>
-import {validChar, validName} from "@/utils/regex";
+import {validName} from "@/utils/regex";
 import Player from "@/components/ui/StartMenu/Player";
 import {start} from "@/game/main";
 
@@ -47,7 +47,7 @@ export default {
       if (this.$store.state.players.length >= 7)
         return;
 
-      this.$store.commit("addPlayer", this.player.trim().toUpperCase());
+      this.$store.commit("pushPlayer", this.player.trim().toUpperCase());
       this.player = "";
     },
 
@@ -73,9 +73,10 @@ export default {
       if (Number(this.lives))
         this.$store.commit("setLives", Number(this.lives));
 
-      if (this.$store.state.players.length >= 3 && this.$store.state.players.length <= 7)
+      if (this.$store.state.players.length >= 3 && this.$store.state.players.length <= 7) {
         start();
         this.$store.commit('setStarted', true)
+      }
     },
   }
 }
@@ -110,7 +111,7 @@ input {
 
 .players {
   height: 30vh;
-  overflow-y: scroll;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -119,10 +120,6 @@ input {
   border-radius: 12px;
   width: 300px;
   box-sizing: border-box;
-}
-
-i {
-  color: darkgreen;
 }
 
 .add-a-player {

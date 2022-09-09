@@ -4,8 +4,8 @@ export function validName(str)
     return re.test(str);
 }
 
-export function validChar(str)
+export function validLetter(str)
 {
-    let re = /^[a-zA-Z\-_.\d]$/;
+    let re = /^[a-zA-Z]$/;
     return re.test(str);
 }

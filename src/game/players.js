@@ -14,7 +14,7 @@ export class Player
 
     loseLife()
     {
-        if (this.lives > 1)
+        if (this.lives >= 1)
             this.lives--;
 
         else
