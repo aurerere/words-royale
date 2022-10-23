@@ -1,6 +1,4 @@
 # Words Royale
-[]: # Version: 0.0.0
-[]: # Date: 2022-09-09<br>
 In english class, we had to create or reinvent a multiplayer game *(with a computer or by using physical assets)*.
 <br>
 I decided to do a support to play a game that we call 
